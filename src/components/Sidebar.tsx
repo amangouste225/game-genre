@@ -4,9 +4,7 @@ export const Sidebar = () => {
   return (
     <div className='drawer lg:drawer-open'>
       <input id='my-drawer-2' type='checkbox' className='drawer-toggle' />
-      <div className='drawer-content flex flex-col items-center justify-center'>
-        {/* Page content here */}
-
+      <div className='drawer-content'>
         <GameGrid />
       </div>
       <div className='drawer-side'>
@@ -15,7 +13,7 @@ export const Sidebar = () => {
           aria-label='close sidebar'
           className='drawer-overlay'
         ></label>
-        <ul className='menu p-4 w-80 min-h-full bg-base text-base-content'>
+        <ul className='menu p-4 w-60 min-h-full bg-base text-base-content'>
           {/* Sidebar content here */}
           <li>
             <a>Sidebar Item 1</a>

@@ -7,7 +7,7 @@ export const Navbar = () => {
 
   const toggle = (e) => {
     if (e.target.checked) {
-      setTheme('dark');
+      setTheme('black');
     } else {
       setTheme('light');
     }

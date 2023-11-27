@@ -1,3 +1,24 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+
+
+@layer utilities {
+  .drawer-content {
+    @apply sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 3xl:grid-cols-5 grid md:justify-between justify-center gap-7
+  }
+
+  .card-title {
+    @apply text-lg font-bold tracking-tighter
+  }
+
+  .container {
+    @apply max-w-screen-3xl mx-auto
+  }
+
+  .card-body {
+    @apply p-[1rem]
+  }
+
+}
