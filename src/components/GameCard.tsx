@@ -1,5 +1,6 @@
 import { IconsList } from '.';
 import { Games } from '../hooks/useGames';
+import { Credit } from './';
 
 interface Props {
   game: Games;
@@ -17,11 +18,10 @@ export const GameCard = ({ game }: Props) => {
       </figure>
       <div className='card-body'>
         <h2 className='card-title'>{game.name}</h2>
-        <IconsList platforms={game.parent_platforms.map((p) => p.platform)} />
-        {/* <p>If a dog chews shoes whose shoes does he choose?</p>
-        <div className='card-actions justify-end'>
-          <button className='btn btn-primary'>Buy Now</button>
-        </div> */}
+        <div className='flex items-center justify-between'>
+          <IconsList platforms={game.parent_platforms.map((p) => p.platform)} />
+          <Credit score={game.metacritic} />
+        </div>
       </div>
     </div>
   );
