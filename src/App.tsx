@@ -1,12 +1,6 @@
-import { useEffect } from 'react';
-import { themeChange } from 'theme-change';
-import { Sidebar, Navbar } from './assets/components';
+import { Sidebar, Navbar } from './components';
 
 function App() {
-  useEffect(() => {
-    themeChange(true);
-  }, []);
-
   return (
     <>
       <Navbar />

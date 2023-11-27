@@ -29,7 +29,7 @@ export const Navbar = () => {
             <input
               type='text'
               placeholder='Search games'
-              className='input input-bordered w-10/12 md:w-11/12 rounded-full mx-auto'
+              className='input input-bordered w-10/12 md:w-11/12 rounded-full mx-auto hover:bg-base-100 hover:text-base-0'
             />
           </div>
         </div>
