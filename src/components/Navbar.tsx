@@ -1,9 +1,9 @@
 import { useEffect, useState } from 'react';
 
 export const Navbar = () => {
-  const [theme, setTheme] = useState('light');
+  const [theme, setTheme] = useState(localStorage.getItem('theme') || 'black');
 
-  const toggle = (e) => {
+  const toggle = (e: React.ChangeEvent<HTMLInputElement>) => {
     if (e.target.checked) {
       setTheme('black');
     } else {
@@ -11,7 +11,10 @@ export const Navbar = () => {
     }
   };
   useEffect(() => {
+    localStorage.setItem('theme', JSON.stringify(theme));
     document.querySelector('html')?.setAttribute('data-theme', theme);
+    // document.documentElement.removeAttribute('data-theme');
+    // document.documentElement.classList.add(theme);
   }, [theme]);
 
   return (
