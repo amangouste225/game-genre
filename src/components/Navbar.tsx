@@ -13,8 +13,6 @@ export const Navbar = () => {
   useEffect(() => {
     localStorage.setItem('theme', JSON.stringify(theme));
     document.querySelector('html')?.setAttribute('data-theme', theme);
-    // document.documentElement.removeAttribute('data-theme');
-    // document.documentElement.classList.add(theme);
   }, [theme]);
 
   return (
@@ -24,11 +22,15 @@ export const Navbar = () => {
           <a className='px-5 text-xl'>daisyUI</a>
         </div>
         <div className='flex-1 gap-2'>
-          <div className='form-control w-full'>
+          <div className='form-control w-full relative'>
+            <div className='absolute hidden md:flex items-center gap-2 right-16 top-2'>
+              <span className='alt'>alt</span>
+              <span className='alt'>Enter</span>
+            </div>
             <input
               type='text'
               placeholder='Search games'
-              className='input input-bordered w-10/12 md:w-11/12 rounded-full mx-auto hover:bg-base-100 hover:text-base-0'
+              className='input input-bordered w-10/12 md:w-11/12 rounded-full mx-auto hover:text-base-0 focus:bg-black'
             />
           </div>
         </div>

@@ -5,6 +5,15 @@
 
 
 @layer utilities {
+
+  .input {
+    @apply h-[2.5em]
+  }
+
+  .alt {
+    @apply border-[#504a4a] border-[1px] px-2 py-[2px] text-xs rounded-md
+  }
+
   .drawer-content {
     @apply sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 3xl:grid-cols-5 grid md:justify-between justify-center gap-6 p-4
   }
