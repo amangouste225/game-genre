@@ -1,4 +1,4 @@
-import { IconsList } from '.';
+import { GameCardContainer, IconsList } from '.';
 import { Games } from '../hooks/useGames';
 import { getCropped } from '../services/image-url';
 import { Credit } from './';
@@ -9,7 +9,7 @@ interface Props {
 
 export const GameCard = ({ game }: Props) => {
   return (
-    <div className='card max-w-[380px] h-[260px] bg-base-300 shadow-lg cursor-pointer hover:scale-105 ease-in-out duration-300'>
+    <GameCardContainer>
       <figure className='h-full w-full'>
         <img
           src={getCropped(game.background_image)}
@@ -24,6 +24,6 @@ export const GameCard = ({ game }: Props) => {
           <Credit score={game.metacritic} />
         </div>
       </div>
-    </div>
+    </GameCardContainer>
   );
 };

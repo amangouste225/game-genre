@@ -1,7 +1,9 @@
 import { useEffect, useState } from 'react';
 
 export const Navbar = () => {
-  const [theme, setTheme] = useState(localStorage.getItem('theme') || 'black');
+  const [theme, setTheme] = useState(
+    localStorage.getItem('theme') ? localStorage.getItem('theme') : 'light'
+  );
 
   const toggle = (e: React.ChangeEvent<HTMLInputElement>) => {
     if (e.target.checked) {
@@ -12,8 +14,8 @@ export const Navbar = () => {
   };
   useEffect(() => {
     localStorage.setItem('theme', theme);
-    document.querySelector('html')?.setAttribute('data-theme', theme);
-    localStorage.clear();
+    const localTheme = localStorage.getItem('theme');
+    document.querySelector('html')?.setAttribute('data-theme', localTheme);
   }, [theme]);
 
   return (
@@ -39,7 +41,7 @@ export const Navbar = () => {
           {/* DARK MODE */}
           <label className='cursor-pointer grid place-items-center'>
             <input
-              onChange={(e) => toggle(e)}
+              onChange={toggle}
               checked={theme === 'light' ? false : true}
               type='checkbox'
               className='toggle theme-controller bg-base-content row-start-1 col-start-1 col-span-2'

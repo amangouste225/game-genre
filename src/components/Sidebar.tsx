@@ -1,4 +1,4 @@
-import { GameGrid } from '.';
+import { GameGrid, GenresList } from '.';
 
 export const Sidebar = () => {
   return (
@@ -13,15 +13,7 @@ export const Sidebar = () => {
           aria-label='close sidebar'
           className='drawer-overlay'
         ></label>
-        <ul className='menu p-4 w-60 min-h-full bg-base text-base-content'>
-          {/* Sidebar content here */}
-          <li>
-            <a>Sidebar Item 1</a>
-          </li>
-          <li>
-            <a>Sidebar Item 2</a>
-          </li>
-        </ul>
+        <GenresList />
       </div>
     </div>
   );
