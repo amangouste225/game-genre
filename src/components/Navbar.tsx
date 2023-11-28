@@ -1,9 +1,7 @@
 import { useEffect, useState } from 'react';
 
 export const Navbar = () => {
-  const [theme, setTheme] = useState(
-    localStorage.getItem('theme') ? localStorage.getItem('theme') : 'light'
-  );
+  const [theme, setTheme] = useState('light');
 
   const toggle = (e) => {
     if (e.target.checked) {
@@ -13,9 +11,7 @@ export const Navbar = () => {
     }
   };
   useEffect(() => {
-    localStorage.setItem('theme', theme);
-    const localTheme = localStorage.getItem('theme');
-    document.querySelector('html')?.setAttribute('data-theme', localTheme);
+    document.querySelector('html')?.setAttribute('data-theme', theme);
   }, [theme]);
 
   return (
@@ -37,11 +33,10 @@ export const Navbar = () => {
           {/* DARK MODE */}
           <label className='cursor-pointer grid place-items-center'>
             <input
-              onChange={toggle}
-              type='checkbox'
-              value='synthwave'
-              className='toggle theme-controller bg-base-content row-start-1 col-start-1 col-span-2'
+              onChange={(e) => toggle(e)}
               checked={theme === 'light' ? false : true}
+              type='checkbox'
+              className='toggle theme-controller bg-base-content row-start-1 col-start-1 col-span-2'
             />
             <svg
               className='col-start-1 row-start-1 stroke-base-100 fill-base-100'
