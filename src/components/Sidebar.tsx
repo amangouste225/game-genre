@@ -17,7 +17,10 @@ export const Sidebar = () => {
           aria-label='close sidebar'
           className='drawer-overlay'
         ></label>
-        <GenresList onSelectGenre={(genre) => setSelectedGenre(genre)} />
+        <GenresList
+          selectedGenre={selectedGenre}
+          onSelectGenre={(genre) => setSelectedGenre(genre)}
+        />
       </div>
     </div>
   );

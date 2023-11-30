@@ -3,9 +3,10 @@ import { getCropped } from '../services/image-url';
 
 interface Props {
   onSelectGenre: (genre: Genres) => void;
+  selectedGenre: Genres | null;
 }
 
-export const GenresList = ({ onSelectGenre }: Props) => {
+export const GenresList = ({ onSelectGenre, selectedGenre }: Props) => {
   const { data } = useGenres();
 
   return (
@@ -17,13 +18,14 @@ export const GenresList = ({ onSelectGenre }: Props) => {
             src={getCropped(genre.image_background)}
             className='max-h-[25px] rounded-md'
           />
-          <a
-            href='#'
+          <button
             onClick={() => onSelectGenre(genre)}
-            className='group-hover:underline text-md'
+            className={`group-hover:underline text-md text fontWeight ${
+              genre.id === selectedGenre?.id ? 'font-bold' : 'font-normal'
+            } `}
           >
             {genre.name}
-          </a>
+          </button>
         </div>
       ))}
     </div>
