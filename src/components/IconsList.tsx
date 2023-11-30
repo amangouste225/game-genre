@@ -34,7 +34,7 @@ export const IconsList = ({ platforms }: Props) => {
   return (
     <div className='flex gap-2'>
       {platforms.map((platform) => (
-        <Icon as={iconsMap[platform.slug]} color='gray.50' />
+        <Icon as={iconsMap[platform.slug]} color='gray.50' key={platform.id} />
       ))}
     </div>
   );

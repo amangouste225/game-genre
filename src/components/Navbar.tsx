@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-
+import Logo from '../assets/logo.webp';
 export const Navbar = () => {
   const [theme, setTheme] = useState(
     localStorage.getItem('theme') ? localStorage.getItem('theme') : 'light'
@@ -21,12 +21,14 @@ export const Navbar = () => {
   return (
     <div>
       <nav className='navbar bg-base-100'>
-        <div className='flex-none'>
-          <a className='px-5 text-xl'>daisyUI</a>
-        </div>
+        <figure className='flex-none w-20'>
+          <a className='p-2'>
+            <img src={Logo} alt='' />
+          </a>
+        </figure>
         <div className='flex-1 gap-2'>
           <div className='form-control w-full relative'>
-            <div className='absolute hidden md:flex items-center gap-2 right-16 top-2'>
+            <div className='absolute hidden md:flex items-center gap-2 right-[40px] lg:right-[75px] top-2'>
               <span className='alt'>alt</span>
               <span className='alt'>Enter</span>
             </div>

@@ -1,6 +1,10 @@
+import { useState } from 'react';
 import { GameGrid, GenresList } from '.';
+import { Genres } from '../hooks/useGenres';
 
 export const Sidebar = () => {
+  const [GenreSelected, setGenreSelected] = useState<Genres | null>(null);
+
   return (
     <div className='drawer lg:drawer-open'>
       <input id='my-drawer-2' type='checkbox' className='drawer-toggle' />
@@ -13,7 +17,7 @@ export const Sidebar = () => {
           aria-label='close sidebar'
           className='drawer-overlay'
         ></label>
-        <GenresList />
+        <GenresList onSelectGenre={(genre) => setGenreSelected(genre)} />
       </div>
     </div>
   );
