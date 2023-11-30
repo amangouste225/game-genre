@@ -1,7 +1,6 @@
 import { useData } from './useData';
-import Platform from './useGames';
 
-interface Props {
+interface Platform {
   id: number;
   name: string;
   slug: string;
