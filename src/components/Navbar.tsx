@@ -13,9 +13,11 @@ export const Navbar = () => {
     }
   };
   useEffect(() => {
-    localStorage.setItem('theme', theme);
+    localStorage.setItem('theme', JSON.stringify(theme));
     const localTheme = localStorage.getItem('theme');
-    document.querySelector('html')?.setAttribute('data-theme', localTheme);
+    document
+      .querySelector('html')
+      ?.setAttribute('data-theme', JSON.stringify(localTheme));
   }, [theme]);
 
   return (
