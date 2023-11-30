@@ -6,6 +6,10 @@
 
 @layer utilities {
 
+  .btn {
+    @apply justify-start
+  }
+
   .input {
     @apply h-[2.5em]
   }
@@ -15,7 +19,7 @@
   }
 
   .drawer-content {
-    @apply sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 3xl:grid-cols-5 grid md:justify-between justify-center gap-6 p-4
+    @apply sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 3xl:grid-cols-5 grid md:justify-between justify-center gap-6 pt-20 px-3
   }
 
   .card-title {
