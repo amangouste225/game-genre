@@ -13,6 +13,10 @@ export default {
           '.genresTitle': {
             color: '#000',
           },
+
+          '.selector': {
+            color: '#000',
+          },
         },
       },
       {
@@ -23,6 +27,9 @@ export default {
             fill: '#000',
           },
           '.genresTitle': {
+            color: '#fff',
+          },
+          '.selector': {
             color: '#fff',
           },
         },

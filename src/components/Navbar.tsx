@@ -1,12 +1,11 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import Logo from '../assets/logo-white.svg';
 import { Input, InputGroup, InputLeftElement } from '@chakra-ui/react';
 import { BsSearch } from 'react-icons/bs';
+
 export const Navbar = () => {
-  const [theme, setTheme] = useState(
-    localStorage.getItem('theme')
-      ? localStorage.getItem('theme') || '{}'
-      : 'light'
+  const [theme, setTheme] = useState<string | null>(
+    localStorage.getItem('theme') ? localStorage.getItem('theme') : 'light'
   );
 
   const toggle = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -17,10 +16,13 @@ export const Navbar = () => {
     }
   };
   useEffect(() => {
-    localStorage.setItem('theme', theme);
-    const localTheme = localStorage.getItem('theme');
+    localStorage.setItem('theme', JSON.stringify(theme));
+    const localTheme = JSON.parse(localStorage.getItem('theme') || '');
+    console.log(localTheme);
     document.querySelector('html')?.setAttribute('data-theme', localTheme);
   }, [theme]);
+
+  const ref = useRef<HTMLInputElement>(null);
 
   return (
     <div>
@@ -32,26 +34,34 @@ export const Navbar = () => {
         </figure>
         <div className='flex-1 gap-2'>
           <div className='form-control w-full relative'>
-            <InputGroup
-              display='flex'
-              alignItems='center'
-              justifyContent='space-between'
+            <form
+              onSubmit={(e) => {
+                e.preventDefault();
+                if (ref.current) console.log(ref.current.value);
+              }}
             >
-              <InputLeftElement
-                children={<BsSearch />}
-                fontSize='20'
-                top='13'
-                left='10'
-              />
-              <Input
-                borderRadius={20}
-                placeholder='Search Games...'
-                paddingY='10px'
-                paddingX='50px'
-                variant='filled'
-                width='100%'
-              />
-            </InputGroup>
+              <InputGroup
+                display='flex'
+                alignItems='center'
+                justifyContent='space-between'
+              >
+                <InputLeftElement
+                  children={<BsSearch />}
+                  fontSize='20'
+                  top='13'
+                  left='10'
+                />
+                <Input
+                  ref={ref}
+                  borderRadius={20}
+                  placeholder='Search Games...'
+                  paddingY='10px'
+                  paddingX='50px'
+                  variant='filled'
+                  width='100%'
+                />
+              </InputGroup>
+            </form>
           </div>
         </div>
         <div className='dropdown dropdown-end flex gap-3'>

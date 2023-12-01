@@ -22,8 +22,9 @@ export const Selector = ({ onSelectPlatform, selectedPlatform }: Props) => {
           borderWidth='2px'
           px={20}
           py={6}
+          fontWeight='bold'
+          className='selector'
         >
-          {' '}
           {selectedPlatform?.name || 'Platforms'}{' '}
         </MenuButton>
         <MenuList px={20} py={10} bg='#fffff0' borderRadius='10'>
