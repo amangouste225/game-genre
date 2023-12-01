@@ -33,7 +33,7 @@ export const Selector = ({ onSelectPlatform, selectedPlatform }: Props) => {
               onClick={() => onSelectPlatform(platform)}
               _hover={{ bg: 'transparent' }}
             >
-              <Button paddingY='3'>{platform.name}</Button>
+              <span className='my-2'>{platform.name}</span>
             </MenuItem>
           ))}
         </MenuList>

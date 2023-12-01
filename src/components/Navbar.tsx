@@ -1,5 +1,7 @@
 import { useEffect, useState } from 'react';
 import Logo from '../assets/logo-white.svg';
+import { Input, InputGroup, InputLeftElement } from '@chakra-ui/react';
+import { BsSearch } from 'react-icons/bs';
 export const Navbar = () => {
   const [theme, setTheme] = useState(
     localStorage.getItem('theme')
@@ -22,7 +24,7 @@ export const Navbar = () => {
 
   return (
     <div>
-      <nav className='navbar bg-base-100'>
+      <nav className='navbar bg-base-100 gap-4'>
         <figure className='flex-none w-30 logo'>
           <a className='p-2'>
             <img src={Logo} alt='' />
@@ -30,15 +32,26 @@ export const Navbar = () => {
         </figure>
         <div className='flex-1 gap-2'>
           <div className='form-control w-full relative'>
-            <div className='absolute hidden md:flex items-center gap-2 right-[45px] lg:right-[68px] top-2'>
-              <span className='alt'>alt</span>
-              <span className='alt'>Enter</span>
-            </div>
-            <input
-              type='text'
-              placeholder='Search games'
-              className='input input-bordered w-10/12 md:w-11/12 rounded-full mx-auto hover:text-base-0'
-            />
+            <InputGroup
+              display='flex'
+              alignItems='center'
+              justifyContent='space-between'
+            >
+              <InputLeftElement
+                children={<BsSearch />}
+                fontSize='20'
+                top='13'
+                left='10'
+              />
+              <Input
+                borderRadius={20}
+                placeholder='Search Games...'
+                paddingY='10px'
+                paddingX='50px'
+                variant='filled'
+                width='100%'
+              />
+            </InputGroup>
           </div>
         </div>
         <div className='dropdown dropdown-end flex gap-3'>

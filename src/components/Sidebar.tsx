@@ -9,7 +9,6 @@ export const Sidebar = () => {
   const [selectedPlatform, setSelectedPlatform] = useState<Platform | null>(
     null
   );
-
   return (
     <div className='drawer lg:drawer-open relative'>
       <input id='my-drawer-2' type='checkbox' className='drawer-toggle' />
