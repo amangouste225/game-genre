@@ -1,4 +1,5 @@
 export { Selector } from './Selector';
+export { SortSelector } from './SortSelector';
 export { Navbar } from './Navbar';
 export { Sidebar } from './Sidebar';
 export { GameGrid } from './GameGrid';

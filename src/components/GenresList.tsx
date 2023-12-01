@@ -11,7 +11,7 @@ export const GenresList = ({ onSelectGenre, selectedGenre }: Props) => {
 
   return (
     <div className='menu p-4 flex gap-5 w-60 min-h-full bg-base text-base-content'>
-      <h1 className='text-[25px] font-bold'>Genres</h1>
+      <h1 className='text-[25px] font-bold genresTitle'>Genres</h1>
       {data.map((genre) => (
         <div key={genre.id} className='flex items-center gap-2 group'>
           <img

@@ -13,7 +13,7 @@ export const Selector = ({ onSelectPlatform, selectedPlatform }: Props) => {
   if (error) return null;
 
   return (
-    <div className='absolute top-0 mb-10 pb-10  z-50'>
+    <div>
       <Menu>
         <MenuButton
           borderRadius='10'
@@ -21,14 +21,12 @@ export const Selector = ({ onSelectPlatform, selectedPlatform }: Props) => {
           rightIcon={<BsChevronDown />}
           borderWidth='2px'
           px={20}
-          py={10}
-          colorScheme='pink'
-          _focus={{ boxShadow: 'outline' }}
+          py={6}
         >
           {' '}
           {selectedPlatform?.name || 'Platforms'}{' '}
         </MenuButton>
-        <MenuList px={20} py={10} bg='gray' borderRadius='10'>
+        <MenuList px={20} py={10} bg='#fffff0' borderRadius='10'>
           {data.map((platform) => (
             <MenuItem
               key={platform.id}

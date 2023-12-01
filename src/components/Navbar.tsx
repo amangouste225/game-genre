@@ -1,8 +1,10 @@
 import { useEffect, useState } from 'react';
-import Logo from '../assets/logo.webp';
+import Logo from '../assets/logo-white.svg';
 export const Navbar = () => {
   const [theme, setTheme] = useState(
-    localStorage.getItem('theme') ? localStorage.getItem('theme') : 'light'
+    localStorage.getItem('theme')
+      ? localStorage.getItem('theme') || '{}'
+      : 'light'
   );
 
   const toggle = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -13,31 +15,29 @@ export const Navbar = () => {
     }
   };
   useEffect(() => {
-    localStorage.setItem('theme', JSON.stringify(theme));
+    localStorage.setItem('theme', theme);
     const localTheme = localStorage.getItem('theme');
-    document
-      .querySelector('html')
-      ?.setAttribute('data-theme', JSON.stringify(localTheme));
+    document.querySelector('html')?.setAttribute('data-theme', localTheme);
   }, [theme]);
 
   return (
     <div>
       <nav className='navbar bg-base-100'>
-        <figure className='flex-none w-20'>
+        <figure className='flex-none w-30 logo'>
           <a className='p-2'>
             <img src={Logo} alt='' />
           </a>
         </figure>
         <div className='flex-1 gap-2'>
           <div className='form-control w-full relative'>
-            <div className='absolute hidden md:flex items-center gap-2 right-[40px] lg:right-[75px] top-2'>
+            <div className='absolute hidden md:flex items-center gap-2 right-[45px] lg:right-[68px] top-2'>
               <span className='alt'>alt</span>
               <span className='alt'>Enter</span>
             </div>
             <input
               type='text'
               placeholder='Search games'
-              className='input input-bordered w-10/12 md:w-11/12 rounded-full mx-auto hover:text-base-0 focus:bg-black'
+              className='input input-bordered w-10/12 md:w-11/12 rounded-full mx-auto hover:text-base-0'
             />
           </div>
         </div>
@@ -80,7 +80,7 @@ export const Navbar = () => {
               <path d='M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z'></path>
             </svg>
           </label>
-          Dark Mode
+          <span className='lg:inline hidden'> Dark Mode</span>
         </div>
       </nav>
     </div>

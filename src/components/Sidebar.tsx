@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { GameGrid, GenresList } from '.';
+import { GameGrid, GenresList, SortSelector } from '.';
 import { Genres } from '../hooks/useGenres';
 import { Selector } from './';
 import Platform from '../hooks/useGames';
@@ -14,10 +14,13 @@ export const Sidebar = () => {
     <div className='drawer lg:drawer-open relative'>
       <input id='my-drawer-2' type='checkbox' className='drawer-toggle' />
       <div className='drawer-content'>
-        <Selector
-          selectedPlatform={selectedPlatform}
-          onSelectPlatform={(platform) => setSelectedPlatform(platform)}
-        />
+        <div className='absolute top-5 lg:flex w-[200px] space-x-4 z-50 hidden'>
+          <Selector
+            selectedPlatform={selectedPlatform}
+            onSelectPlatform={(platform) => setSelectedPlatform(platform)}
+          />
+          <SortSelector />
+        </div>
         <GameGrid
           selectedGenre={selectedGenre}
           selectedPlatform={selectedPlatform}

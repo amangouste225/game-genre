@@ -1,7 +1,33 @@
 /** @type {import('tailwindcss').Config} */
+
 export default {
   daisyui: {
-    themes: ['light', 'dark'],
+    themes: [
+      {
+        light: {
+          ...require('daisyui/src/theming/themes')['light'],
+          '.logo': {
+            filter: 'invert(100%)',
+            fill: '#000',
+          },
+          '.genresTitle': {
+            color: '#000',
+          },
+        },
+      },
+      {
+        dark: {
+          ...require('daisyui/src/theming/themes')['dark'],
+          '.logo': {
+            filter: 'invert(0%)',
+            fill: '#000',
+          },
+          '.genresTitle': {
+            color: '#fff',
+          },
+        },
+      },
+    ],
   },
   content: ['./index.html', './src/**/*.{js,ts,jsx,tsx}'],
   theme: {
