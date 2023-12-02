@@ -7,10 +7,9 @@ import Platform from '../hooks/useGames';
 export interface GameQuery {
   genre: Genres | null;
   platform: Platform | null;
+  sortOrder: string;
 }
 
-// const [selectedGenre, setSelectedGenre] = useState<Genres | null>(null);
-// const [selectedPlatform, setSelectedPlatform] = useState<Platform | null>(null);
 export const Sidebar = () => {
   const [gameQuery, setGameQuery] = useState<GameQuery>({} as GameQuery);
   return (
@@ -24,7 +23,13 @@ export const Sidebar = () => {
               setGameQuery({ ...gameQuery, platform })
             }
           />
-          <SortSelector />
+
+          <SortSelector
+            sortOrder={gameQuery.sortOrder}
+            onSortOrder={(sortOrder) =>
+              setGameQuery({ ...sortOrder, sortOrder })
+            }
+          />
         </div>
         <GameGrid gameQuery={gameQuery} />
       </div>
