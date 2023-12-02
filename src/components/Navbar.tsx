@@ -3,7 +3,11 @@ import Logo from '../assets/logo-white.svg';
 import { Input, InputGroup, InputLeftElement } from '@chakra-ui/react';
 import { BsSearch } from 'react-icons/bs';
 
-export const Navbar = () => {
+interface Props {
+  onSearch: (searchText: string) => void;
+}
+
+export const Navbar = ({ onSearch }: Props) => {
   const [theme, setTheme] = useState<string | null>(
     localStorage.getItem('theme') ? localStorage.getItem('theme') : 'light'
   );
@@ -18,7 +22,6 @@ export const Navbar = () => {
   useEffect(() => {
     localStorage.setItem('theme', JSON.stringify(theme));
     const localTheme = JSON.parse(localStorage.getItem('theme') || '');
-    console.log(localTheme);
     document.querySelector('html')?.setAttribute('data-theme', localTheme);
   }, [theme]);
 
@@ -28,8 +31,8 @@ export const Navbar = () => {
     <div>
       <nav className='navbar bg-base-100 gap-4'>
         <figure className='flex-none w-30 logo'>
-          <a className='p-2'>
-            <img src={Logo} alt='' />
+          <a className='p-2' href='/'>
+            <img src={Logo} alt='logo' />
           </a>
         </figure>
         <div className='flex-1 gap-2'>
@@ -37,7 +40,7 @@ export const Navbar = () => {
             <form
               onSubmit={(e) => {
                 e.preventDefault();
-                if (ref.current) console.log(ref.current.value);
+                if (ref.current) onSearch(ref.current.value);
               }}
             >
               <InputGroup

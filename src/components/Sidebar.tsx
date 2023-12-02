@@ -1,4 +1,3 @@
-import { useState } from 'react';
 import { GameGrid, GenresList, SortSelector } from '.';
 import { Genres } from '../hooks/useGenres';
 import { Selector } from './';
@@ -8,10 +7,10 @@ export interface GameQuery {
   genre: Genres | null;
   platform: Platform | null;
   sortOrder: string;
+  searchText: string;
 }
 
-export const Sidebar = () => {
-  const [gameQuery, setGameQuery] = useState<GameQuery>({} as GameQuery);
+export const Sidebar = ({ gameQuery, setGameQuery }) => {
   return (
     <div className='drawer lg:drawer-open relative'>
       <input id='my-drawer-2' type='checkbox' className='drawer-toggle' />
@@ -27,7 +26,7 @@ export const Sidebar = () => {
           <SortSelector
             sortOrder={gameQuery.sortOrder}
             onSortOrder={(sortOrder) =>
-              setGameQuery({ ...sortOrder, sortOrder })
+              setGameQuery({ ...gameQuery, sortOrder })
             }
           />
         </div>
