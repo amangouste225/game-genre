@@ -8,3 +8,4 @@ export { Credit } from './Credit';
 export { GameCardSkeleton } from './GameCardSkeleton';
 export { GameCardContainer } from './GameCardContainer';
 export { GenresList } from './GenresList';
+export { GamesHeading } from './GamesHeading';

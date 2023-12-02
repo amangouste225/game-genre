@@ -24,7 +24,7 @@ export const Navbar = ({ onSearch }: Props) => {
     const localTheme = JSON.parse(localStorage.getItem('theme') || '');
     document.querySelector('html')?.setAttribute('data-theme', localTheme);
   }, [theme]);
-
+  localStorage.clear();
   const ref = useRef<HTMLInputElement>(null);
 
   return (

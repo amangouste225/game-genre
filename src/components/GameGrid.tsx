@@ -1,7 +1,7 @@
 import { GameCardSkeleton } from '.';
 import { useGames } from '../hooks/useGames';
 import { GameCard } from './GameCard';
-import { GameQuery } from './Sidebar';
+import { GameQuery } from '../App';
 
 interface Props {
   gameQuery: GameQuery;

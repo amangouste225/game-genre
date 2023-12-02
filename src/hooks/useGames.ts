@@ -1,3 +1,4 @@
+import { GameQuery } from '../App';
 import { useData } from './useData';
 
 export default interface Platform {
@@ -14,7 +15,7 @@ export interface Games {
   metacritic: number;
 }
 
-export const useGames = (gameQuery: gameQuery) =>
+export const useGames = (gameQuery: GameQuery) =>
   useData<Games>(
     '/games',
     {

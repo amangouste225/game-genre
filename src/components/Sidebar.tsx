@@ -1,21 +1,22 @@
-import { GameGrid, GenresList, SortSelector } from '.';
-import { Genres } from '../hooks/useGenres';
+import { GameGrid, GamesHeading, GenresList, SortSelector } from '.';
 import { Selector } from './';
-import Platform from '../hooks/useGames';
+import { GameQuery } from '../App';
 
-export interface GameQuery {
-  genre: Genres | null;
-  platform: Platform | null;
-  sortOrder: string;
-  searchText: string;
+interface Props {
+  gameQuery: GameQuery;
+  setGameQuery: React.Dispatch<React.SetStateAction<GameQuery>>;
 }
 
-export const Sidebar = ({ gameQuery, setGameQuery }) => {
+export const Sidebar = ({ gameQuery, setGameQuery }: Props) => {
   return (
     <div className='drawer lg:drawer-open relative'>
       <input id='my-drawer-2' type='checkbox' className='drawer-toggle' />
+
       <div className='drawer-content'>
-        <div className='absolute top-5 lg:flex w-[200px] space-x-4 z-50 hidden'>
+        <div className='absolute top-5'>
+          <GamesHeading gameQuery={gameQuery} />
+        </div>
+        <div className='absolute top-20 lg:flex w-[200px] space-x-4 z-50 hidden'>
           <Selector
             selectedPlatform={gameQuery.platform}
             onSelectPlatform={(platform) =>
