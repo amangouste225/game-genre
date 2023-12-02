@@ -4,31 +4,34 @@ import { Genres } from '../hooks/useGenres';
 import { Selector } from './';
 import Platform from '../hooks/useGames';
 
+export interface GameQuery {
+  genre: Genres | null;
+  platform: Platform | null;
+}
+
+// const [selectedGenre, setSelectedGenre] = useState<Genres | null>(null);
+// const [selectedPlatform, setSelectedPlatform] = useState<Platform | null>(null);
 export const Sidebar = () => {
-  const [selectedGenre, setSelectedGenre] = useState<Genres | null>(null);
-  const [selectedPlatform, setSelectedPlatform] = useState<Platform | null>(
-    null
-  );
+  const [gameQuery, setGameQuery] = useState<GameQuery>({} as GameQuery);
   return (
     <div className='drawer lg:drawer-open relative'>
       <input id='my-drawer-2' type='checkbox' className='drawer-toggle' />
       <div className='drawer-content'>
         <div className='absolute top-5 lg:flex w-[200px] space-x-4 z-50 hidden'>
           <Selector
-            selectedPlatform={selectedPlatform}
-            onSelectPlatform={(platform) => setSelectedPlatform(platform)}
+            selectedPlatform={gameQuery.platform}
+            onSelectPlatform={(platform) =>
+              setGameQuery({ ...gameQuery, platform })
+            }
           />
           <SortSelector />
         </div>
-        <GameGrid
-          selectedGenre={selectedGenre}
-          selectedPlatform={selectedPlatform}
-        />
+        <GameGrid gameQuery={gameQuery} />
       </div>
       <div className='drawer-side'>
         <GenresList
-          selectedGenre={selectedGenre}
-          onSelectGenre={(genre) => setSelectedGenre(genre)}
+          selectedGenre={gameQuery.genre}
+          onSelectGenre={(genre) => setGameQuery({ ...gameQuery, genre })}
         />
       </div>
     </div>
