@@ -9,7 +9,9 @@ interface Props {
 
 export const Navbar = ({ onSearch }: Props) => {
   const [theme, setTheme] = useState<string | null>(
-    localStorage.getItem('theme') ? localStorage.getItem('theme') : 'light'
+    localStorage.getItem('theme')
+      ? JSON.parse(localStorage.getItem('theme')!)
+      : 'light'
   );
 
   const toggle = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -24,7 +26,6 @@ export const Navbar = ({ onSearch }: Props) => {
     const localTheme = JSON.parse(localStorage.getItem('theme') || '');
     document.querySelector('html')?.setAttribute('data-theme', localTheme);
   }, [theme]);
-  localStorage.clear();
   const ref = useRef<HTMLInputElement>(null);
 
   return (
