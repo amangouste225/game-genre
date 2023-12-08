@@ -13,7 +13,7 @@ export const Sidebar = ({ gameQuery, setGameQuery }: Props) => {
       <input id='my-drawer-2' type='checkbox' className='drawer-toggle' />
 
       <div className='drawer-content'>
-        <div className='absolute top-7'>
+        <div className='absolute top-7 left-[130px] lg:left-[250px]'>
           <GamesHeading gameQuery={gameQuery} />
         </div>
         <div className='absolute top-28 lg:flex w-[200px] space-x-4 z-50 hidden'>

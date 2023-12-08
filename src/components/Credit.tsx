@@ -12,7 +12,7 @@ export const Credit = ({ score }: Props) => {
       className='bg-base-100 px-3 text-[`${color}`] rounded-md shadow-lg text-sm'
       colorScheme={color}
     >
-      +{score}
+      ➕{score}
     </Badge>
   );
 };
