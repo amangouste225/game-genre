@@ -11,7 +11,7 @@ export const GamesHeading = ({ gameQuery }: Props) => {
 
   return (
     <div>
-      <h1 className='text-4xl font-bold'>{heading} </h1>
+      <h1 className='text-4xl lg:text-5xl font-bold '>{heading} </h1>
     </div>
   );
 };

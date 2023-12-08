@@ -32,7 +32,7 @@ export const Navbar = ({ onSearch }: Props) => {
     <div>
       <nav className='navbar bg-base-100 gap-4'>
         <figure className='flex-none w-30 logo'>
-          <a className='p-2' href='/'>
+          <a className='p-2 hidden md:block' href='/'>
             <img src={Logo} alt='logo' />
           </a>
         </figure>
@@ -59,7 +59,7 @@ export const Navbar = ({ onSearch }: Props) => {
                   ref={ref}
                   borderRadius={20}
                   placeholder='Search Games...'
-                  paddingY='10px'
+                  paddingY='7px'
                   paddingX='50px'
                   variant='filled'
                   width='100%'
